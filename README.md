@@ -7,7 +7,8 @@ ______________________________________________
 ______________________________________________
 
 Project CODERS (Coders Obviously Deserve Expenses Reports Supplied)
-  1) Webscraper for Linkedin/other website
-  2) Integration with StackOverflow 2016 Developer survey
-  3) Create statistics for different types of developers around (where they are more wanted/needed, how much they'll get paid, etc)
+
+  * 1) Webscraper for Linkedin/other website
+  * 2) Integration with StackOverflow 2016 Developer survey
+  * 3) Create statistics for different types of developers around (where they are more wanted/needed, how much they'll get paid, etc)
 
