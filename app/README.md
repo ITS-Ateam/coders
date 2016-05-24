@@ -1,1 +1,4 @@
-THIS IS THE README FILE THAT I HAVE NO TIME TO WRITE RIGHT NOW. 
+1 - Execute the install_dependecies.sh for install all dependecies. 
+
+
+
