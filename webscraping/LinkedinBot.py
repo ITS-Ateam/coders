@@ -1,3 +1,4 @@
+import sys
 import argparse, os, time
 import urlparse, random
 from Selenium import webdriver
@@ -15,17 +16,32 @@ def getJobLinks(page):
 
 def getJobID(url):
     jUrl = urlparse.urlparse(url)
-    return urlparse.parse_qs(jUrl.query)['id'][0]
+    return jUrl.split('/')[5].split('?')[0]
 
+#this is the function that defines the bot
+#the firts thing the bot does is clicking on the
+#jobs tile in the page,
 def ViewBot(browser):
+    print("[+] positioning the bot on the jobs page")
+    browser.get('https://linkedin.com/job/home')
     visited = {}
     jobsList = []
     count = 0
-    while True:
+
+    jobTilesList['sviluppatore', 'developer']
+
+    for title in jobTitlesList:
         #sleep to make sure everything loads
         #add random time to make us look human
         time.sleep(random.uniform(3.5, 7))
         page = BeautifulSoup(browser.page_source)
+
+        #type the job title in the search box
+        searchElement = browser.find_element_by_id("job-search-box")
+        searchElement.send_keys(title)
+        searchElement.submit()
+
+        #get the job links from the page
         jobs = getJobLinks(page)
         if jobs:
             for job in jobs:
@@ -34,8 +50,9 @@ def ViewBot(browser):
                     job = root + job
                 browser.get(job)
         else:
-                #click on the jobs button an ìd inspect the page
-                    
+                print("[-] I'm lost, exiting")
+                sys.exit()
+
 
 def Main():
     parser = argparse.ArgumentParser()
@@ -54,6 +71,7 @@ def Main():
     os.system('clear')
 
     print "[+] Successfully logged in. Bot starting"
+
     ViewBot(browser)
     browser.close()
 
