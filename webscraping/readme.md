@@ -9,7 +9,7 @@ time: used to generate a time to make the bot wait for the pages to load and
 
 Selenium:
 
-BeautifulSoup: 
+BeautifulSoup:
 
 
 BEHAVIOUR OF THE BOT
@@ -43,6 +43,20 @@ to make sure he doesn't have them already stored in the database
 
 keywords: sviluppatore developer
 
+this is the job object that will be populated
+
+{
+  "id": "",
+  "position": "",
+  "company": "",
+  "geoArea": "",
+  "date": "",
+  "indutsry": "",
+  "employmentType": "",
+  "experience": "",
+  "jobFunction": "",
+  "pageUrl": ""
+}
 
 USEFUL TUTORIALS:
 

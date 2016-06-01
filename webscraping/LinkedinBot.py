@@ -1,9 +1,14 @@
 import sys
 import argparse, os, time
 import urlparse, random
-from Selenium import webdriver
-from Selenium.webdriver.common.keys import Keys
+import selenium
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+
+#this is the method that scrapes each job page
+def getJobInfo(page):
+    return null
 
 def getJobLinks(page):
     links = []
@@ -20,7 +25,11 @@ def getJobID(url):
 
 #this is the function that defines the bot
 #the firts thing the bot does is clicking on the
-#jobs tile in the page,
+#jobs tile in the page, then it types the jobs titles in the search box
+#gets all the links from the page, their ids and then stores them in a dictionary
+
+#when the urls are retrieved the bot procedes visiting each job page searching
+#for ueful information
 def ViewBot(browser):
     print("[+] positioning the bot on the jobs page")
     browser.get('https://linkedin.com/job/home')
@@ -28,7 +37,7 @@ def ViewBot(browser):
     jobsList = []
     count = 0
 
-    jobTilesList['sviluppatore', 'developer']
+    jobTitlesList['sviluppatore', 'developer']
 
     for title in jobTitlesList:
         #sleep to make sure everything loads
@@ -49,24 +58,29 @@ def ViewBot(browser):
                 if root not in job:
                     job = root + job
                 browser.get(job)
+                jobpage = BeautifulSoup(browser.page_source)
+                getJobInfo(jobpage)
         else:
                 print("[-] I'm lost, exiting")
                 sys.exit()
 
 
 def Main():
-    parser = argparse.ArgumentParser()
-    parser.add_arguemnt("email", help="Your linkedin email")
-    parser.add_argument("password", help="Your linkedin password")
-    args = parser.parse_args()
+    print('##########WELCOME TO THE JOB FINDER BOT!#############')
+    email = '{0}'.format(raw_input("Type in your LinkedIn username: "))
+    psw = '{0}'.format(raw_input("Insert your password: "))
+    print(email)
+    print(psw)
+    print("[+] Bot starting")
 
     browser = webdriver.Firefox()
     browser.get("https://linkedin.com/uas/login")
     emailElement = browser.find_element_by_id("session_key-login")
-    emailElement.send_keys(args.email)
+    emailElement.send_keys(email)
     passElement = browser.find_element_by_id("session_password-login")
-    passElement.send_keys(args.password)
-    passElement.submit()
+    passElement.send_keys(psw)
+    btn = browser.find_element_by_id("btn-primary")
+    btn.click()
 
     os.system('clear')
 
@@ -75,5 +89,5 @@ def Main():
     ViewBot(browser)
     browser.close()
 
-if __name__ == "__main__"
+if __name__ == "__main__":
     Main()
