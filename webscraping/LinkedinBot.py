@@ -1,14 +1,36 @@
 import sys
 import argparse, os, time
 import urlparse, random
-import selenium
+import getpass
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 
 #this is the method that scrapes each job page
-def getJobInfo(page):
-    return null
+def getJobInfo(url, page):
+    #the input page is already parsed
+    job = {
+    "id": "",
+    "position": "",
+    "company": "",
+    "geoArea": "",
+    "date": "",
+    "indutsry": "",
+    "employmentType": "",
+    "experience": "",
+    "jobFunction": "",
+    "description": "",
+    "pageUrl": ""
+    }
+
+    job['id'] = getJobID(url)
+    job['pageUrl'] = url
+
+    print(job)
+    test = open('jobPage.html', 'w')
+    page = str(page)
+    test.write(page)
+    sys.exit(0)
 
 def getJobLinks(page):
     links = []
@@ -20,8 +42,8 @@ def getJobLinks(page):
     return links
 
 def getJobID(url):
-    jUrl = urlparse.urlparse(url)
-    return jUrl.split('/')[5].split('?')[0]
+    print(url)
+    return url.split('/')[5].split('?')[0]
 
 #this is the function that defines the bot
 #the firts thing the bot does is clicking on the
@@ -32,45 +54,45 @@ def getJobID(url):
 #for ueful information
 def ViewBot(browser):
     print("[+] positioning the bot on the jobs page")
-    browser.get('https://linkedin.com/job/home')
+    #sleep to make sure everything loads + not to be kicked out
+    time.sleep(random.uniform(3.5,7.0))
+    browser.get("https://www.linkedin.com/job/home")
+
     visited = {}
     jobsList = []
     count = 0
 
-    jobTitlesList['sviluppatore', 'developer']
+    time.sleep(random.uniform(3.5,5.0))
+    jobTitlesList = ['developer', 'sviluppatore']
 
     for title in jobTitlesList:
         #sleep to make sure everything loads
-        #add random time to make us look human
-        time.sleep(random.uniform(3.5, 7))
+        time.sleep(random.uniform(1.5,3.0))
         page = BeautifulSoup(browser.page_source)
-
         #type the job title in the search box
         searchElement = browser.find_element_by_id("job-search-box")
         searchElement.send_keys(title)
         searchElement.submit()
 
+        #wait for the page to load
+        time.sleep(random.uniform(1.5,4.0))
         #get the job links from the page
+        page = BeautifulSoup(browser.page_source)
         jobs = getJobLinks(page)
         if jobs:
             for job in jobs:
-                root = "https://www.linkedin.com"
-                if root not in job:
-                    job = root + job
                 browser.get(job)
                 jobpage = BeautifulSoup(browser.page_source)
-                getJobInfo(jobpage)
+                getJobInfo(job, jobpage)
         else:
                 print("[-] I'm lost, exiting")
-                sys.exit()
+                break
 
 
 def Main():
     print('##########WELCOME TO THE JOB FINDER BOT!#############')
     email = '{0}'.format(raw_input("Type in your LinkedIn username: "))
-    psw = '{0}'.format(raw_input("Insert your password: "))
-    print(email)
-    print(psw)
+    psw = '{0}'.format(getpass.getpass("Insert your password: "))
     print("[+] Bot starting")
 
     browser = webdriver.Firefox()
@@ -83,9 +105,7 @@ def Main():
     btn.click()
 
     os.system('clear')
-
     print "[+] Successfully logged in. Bot starting"
-
     ViewBot(browser)
     browser.close()
 
