@@ -1,4 +1,4 @@
-package its.tsid.projectNAME.dataAccess;
+package its.tsid.coders.dataAccess;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;

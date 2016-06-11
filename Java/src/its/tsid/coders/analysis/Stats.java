@@ -1,4 +1,4 @@
-package its.tsid.projectNAME.analysis;
+package its.tsid.coders.analysis;
 
 import java.util.Date;
 import java.util.Map;

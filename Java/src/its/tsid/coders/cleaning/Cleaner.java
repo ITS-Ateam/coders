@@ -1,9 +1,9 @@
-package its.tsid.projectNAME.cleaning;
+package its.tsid.coders.cleaning;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
-import its.tsid.projectNAME.dataAccess.Checker;
+import its.tsid.coders.dataAccess.Checker;
 
 public class Cleaner extends Checker {
 

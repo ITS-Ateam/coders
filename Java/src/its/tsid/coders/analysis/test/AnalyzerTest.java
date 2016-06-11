@@ -1,12 +1,13 @@
-package its.tsid.projectNAME.analysis.test;
+package its.tsid.coders.analysis.test;
 
 import static org.junit.Assert.*;
-import its.tsid.projectNAME.analysis.Analyzer;
 
 import org.junit.Test;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+
+import its.tsid.coders.analysis.Analyzer;
 
 public class AnalyzerTest {
 

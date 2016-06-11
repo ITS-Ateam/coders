@@ -1,6 +1,6 @@
-package its.tsid.projectNAME.analysis;
+package its.tsid.coders.analysis;
 
-import its.tsid.projectNAME.dataAccess.DbAccess;
+import its.tsid.coders.dataAccess.DbAccess;
 
 public class Program {
 

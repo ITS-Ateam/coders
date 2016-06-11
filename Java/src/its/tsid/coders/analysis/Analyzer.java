@@ -1,12 +1,13 @@
-package its.tsid.projectNAME.analysis;
+package its.tsid.coders.analysis;
 
 import java.util.Map;
 import java.util.TreeMap;
-import its.tsid.projectNAME.analysis.Weighting;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
-import its.tsid.projectNAME.dataAccess.Checker;
+import its.tsid.coders.analysis.Weighting;
+import its.tsid.coders.dataAccess.Checker;
 
 public class Analyzer extends Checker {
 

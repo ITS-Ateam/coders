@@ -1,4 +1,4 @@
-package its.tsid.projectNAME.analysis.test;
+package its.tsid.coders.analysis.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

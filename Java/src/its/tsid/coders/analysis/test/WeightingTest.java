@@ -1,12 +1,13 @@
-package its.tsid.projectNAME.analysis.test;
+package its.tsid.coders.analysis.test;
 
 import static org.junit.Assert.*;
-import its.tsid.projectNAME.analysis.Weighting;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
+
+import its.tsid.coders.analysis.Weighting;
 
 public class WeightingTest {
 

@@ -1,6 +1,6 @@
-package its.tsid.projectNAME.cleaning;
+package its.tsid.coders.cleaning;
 
-import its.tsid.projectNAME.dataAccess.DbAccess;
+import its.tsid.coders.dataAccess.DbAccess;
 
 public class Program {
 

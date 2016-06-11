@@ -1,4 +1,4 @@
-package its.tsid.projectNAME.cleaning;
+package its.tsid.coders.cleaning;
 
 import java.util.HashMap;
 import java.util.Map;

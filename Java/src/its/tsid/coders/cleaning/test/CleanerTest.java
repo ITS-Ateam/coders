@@ -1,11 +1,12 @@
-package its.tsid.projectNAME.cleaning.test;
+package its.tsid.coders.cleaning.test;
 
 import static org.junit.Assert.*;
-import its.tsid.projectNAME.cleaning.Cleaner;
 
 import org.junit.Test;
 
 import com.mongodb.BasicDBObject;
+
+import its.tsid.coders.cleaning.Cleaner;
 
 public class CleanerTest {
 
