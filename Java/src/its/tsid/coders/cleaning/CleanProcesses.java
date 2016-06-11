@@ -3,10 +3,6 @@ package its.tsid.coders.cleaning;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.bson.BasicBSONObject;
-
-import com.mongodb.DBObject;
-
 public class CleanProcesses {
 
 	/**
