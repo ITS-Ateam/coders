@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 def getJobInfo(url, page):
     #the input page is already parsed
     job = {
-    "id": "",
+    "jobId": "",
     "position": "",
     "company": "",
     "geoArea": "",
@@ -19,18 +19,18 @@ def getJobInfo(url, page):
     "employmentType": "",
     "experience": "",
     "jobFunction": "",
-    "description": "",
     "pageUrl": ""
     }
 
-    job['id'] = getJobID(url)
+    job['jobId'] = getJobID(url)
     job['pageUrl'] = url
 
     print(job)
-    test = open('jobPage.html', 'w')
+    jFile = open(job['jobId'], 'w')
     page = str(page)
-    test.write(page)
-    sys.exit(0)
+
+    
+
 
 def getJobLinks(page):
     links = []
