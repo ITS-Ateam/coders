@@ -11,9 +11,9 @@ public class DbAccess {
 	private static String pwd = "root";
 
 	public DbAccess(String db, String user, String pwd) {
-		this.db = db;
-		this.user = user;
-		this.pwd = pwd;
+		DbAccess.db = db;
+		DbAccess.user = user;
+		DbAccess.pwd = pwd;
 	}
 
 	public static void dbAccess(String table, Action action) {
