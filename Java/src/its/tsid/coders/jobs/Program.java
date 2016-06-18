@@ -1,17 +1,17 @@
 package its.tsid.coders.jobs;
 
+import its.tsid.coders.dataAccess.*;
+
 public class Program {
 
 	public static void main(String[] args) {
-		String message = "";
-		if (args.length == 0) {
-			message = "Error, need to pass username and password for the db!";
-		} else {
-			if (args.length != 2) {
-				message = String.format("Error, expected 2 parameters! " + "Got %i parameters!", args.length);
-			}
-		}
-		System.out.println(message);
+		System.out.println(Checker.checkArgs(args));
+		
+		DbAccess dba = new DbAccess("jdbc:postgresql://localhost:5432/test", args[0], args[1]);
+		
+		dba.dbAccess("retrieved", "SELECT * FROM retrieved");
 	}
+
+	
 
 }

@@ -16,14 +16,14 @@ public class DbAccess {
 		DbAccess.pwd = pwd;
 	}
 
-	public static void dbAccess(String table, Action action) {
+	public void dbAccess(String table, String action) {
 
 		try {
 			Class.forName("org.postgresql.Driver");
 
 			conn = DriverManager.getConnection(db, user, pwd);
 			conn.setAutoCommit(false);
-			String sql = "SELECT id FROM retrieved;";
+			String sql = action;
 
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
