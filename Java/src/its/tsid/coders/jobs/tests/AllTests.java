@@ -2,7 +2,7 @@ package its.tsid.coders.jobs.tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.*;
 
 public class AllTests {
 
