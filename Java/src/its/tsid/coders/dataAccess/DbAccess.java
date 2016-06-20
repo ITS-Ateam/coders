@@ -1,7 +1,6 @@
 package its.tsid.coders.dataAccess;
 
 import java.sql.*;
-import its.tsid.coders.dataAccess.Action;
 
 public class DbAccess {
 	private static Connection conn = null;
@@ -16,20 +15,20 @@ public class DbAccess {
 		DbAccess.pwd = pwd;
 	}
 
-	public void dbAccess(String table, String action) {
+	public ResultSet query(String sql) {
 
 		try {
 			Class.forName("org.postgresql.Driver");
 
 			conn = DriverManager.getConnection(db, user, pwd);
 			conn.setAutoCommit(false);
-			String sql = action;
-
+			
 			stmt = conn.createStatement();
-			stmt.executeUpdate(sql);
+			ResultSet rs = stmt.executeQuery(sql);
 
 			conn.commit();
 			conn.close();
+			return rs;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,6 +36,7 @@ public class DbAccess {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 }

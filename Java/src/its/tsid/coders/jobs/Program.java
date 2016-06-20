@@ -1,5 +1,7 @@
 package its.tsid.coders.jobs;
 
+import java.sql.ResultSet;
+
 import its.tsid.coders.dataAccess.*;
 
 public class Program {
@@ -9,7 +11,7 @@ public class Program {
 		
 		DbAccess dba = new DbAccess("jdbc:postgresql://localhost:5432/test", args[0], args[1]);
 		
-		dba.dbAccess("retrieved", "SELECT * FROM retrieved");
+		ResultSet rs = dba.query("SELECT * FROM retrieved");
 	}
 
 	
