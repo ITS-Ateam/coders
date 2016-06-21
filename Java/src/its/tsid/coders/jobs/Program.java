@@ -12,6 +12,8 @@ public class Program {
 		DbAccess dba = new DbAccess("jdbc:postgresql://localhost:5432/test", args[0], args[1]);
 		
 		ResultSet rs = dba.query("SELECT * FROM retrieved");
+		
+		
 	}
 
 	
