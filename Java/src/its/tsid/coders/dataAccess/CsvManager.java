@@ -25,7 +25,7 @@ public class CsvManager {
 				factory = new GeoAreaFactory(null);
 				if (checkFormat(param, 10)) {
 					areas.add(factory.getGeoArea());
-					factory = null;
+					factory.reset();
 				}
 				
 			}
