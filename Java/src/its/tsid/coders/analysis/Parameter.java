@@ -30,12 +30,16 @@ public class Parameter {
 		return type;
 	}
 	
+	public double getWeight(){
+		return weight;
+	}
+	
 	public String getParam(){
 		return param;
 	}
 	
 	public double getWeightedValue(){
-		return value * weight;
+		return getWeightedValue(weight);
 	}
 	
 	public double getWeightedValue(double weight){
